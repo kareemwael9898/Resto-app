@@ -16,7 +16,6 @@ app.use(bodyParser.json());
 
 // Handle POST request to postData
 app.post('/bookings/add', async (req, res) => {
-  // const { id, numPeople, tableNum, startTime, endDate, customerId } = req.body;
   const bookingId = req.body.bookingId;
   const numPeople = req.body.numOfPeople;
   const tableNum = req.body.tableNumber;
