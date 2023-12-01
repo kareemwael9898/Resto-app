@@ -1,4 +1,13 @@
 const dbConnection = require('../config/database');
+/* 
+              APIs USED
+
+        post ==> /api/booking/add
+        post ==> /api/booking/getByDate
+        get  ==> /api/booking/getAll
+        post ==> /api/booking/getBusy
+        post ==> /api/booking/delete
+*/
 
 // Handle POST request to postData
 const add = async (req, res) => {
