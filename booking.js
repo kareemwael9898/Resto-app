@@ -21,23 +21,23 @@ const add = async (req, res) => {
   console.log('Received data:', { bookingName, numPeople, tableNum, date, startTime, endTime, customerId });
 
   // Ensure that the time is in the range of open times
-  if(startTime<'08:00' || endTime<'08:00'){
+  if (startTime < '08:00' || endTime < '08:00') {
     console.log("Resto is open from 8:00 Am to 12:00 Am!");
     res.status(400).send("Resto is open from 8:00 Am to 12:00 Am!");
     return;
   }
-  
+
   // Ensure that the end Time > start Time
-  if(startTime > endTime){
+  if (startTime > endTime) {
     console.log("The time entered is incorrect!");
     res.status(400).send("The time entered is incorrect!");
     return;
   }
-  
+
   // Ensure that there isn't any bookings for this table at the chosen time
   var sql2 = (`SELECT tableNumber,startTime,endTime FROM bookings WHERE date='${date}' And tableNumber=${tableNum} And startTime < '${endTime}' And  endTime > '${startTime}' order by startTime;`)
   const [conflictingBookings] = await (await dbConnection).query(sql2);
-  
+
   if (conflictingBookings.length === 0) {
     var sql = 'INSERT INTO bookings (bookingName,numberOfPeople,tableNumber,date,startTime,endTime,customerId) VALUES (?,?,?,?,?,?,?);'
     var Values = [bookingName, numPeople, tableNum, date, startTime, endTime, customerId];
@@ -45,10 +45,10 @@ const add = async (req, res) => {
     res.status(200).send('Data received successfully!');
   } else {
     // res.status(400).send('The Table is Busy!');
-    console.log("conflictingBookings : ",conflictingBookings);
+    console.log("conflictingBookings : ", conflictingBookings);
     res.status(400).json(conflictingBookings);
   }
-  
+
 };
 
 // Get Bookings By Date

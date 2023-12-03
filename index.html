@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Node.js Test Example</title>
 </head>
+
 <body>
     <h1>POST Data to Node.js Server</h1>
-     <form id="postDataForm" action="http://localhost:3000/api/booking/add" method="POST">
-     	<label for="bookingName">Booking Name:</label>
+    <form id="postDataForm" action="http://localhost:3000/api/booking/add" method="POST">
+        <label for="bookingName">Booking Name:</label>
         <input type="text" id="bookingName" name="bookingName"><br>
 
         <label for="numOfPeople">Number of People:</label>
@@ -30,19 +32,19 @@
         <input type="number" id="customerId" name="customerId" required><br>
 
         <input type="submit" value="Submit">
-    </form>  
-    
+    </form>
+
     <h1>Get Bookings By Date</h1>
     <form id="postDataForm" action="http://localhost:3000/api/booking/getByDate" method="POST">
         <label for="date">Start Date:</label>
         <input type="Date" id="date" name="date" required><br>
-        
+
         <input type="submit" value="Submit">
-    </form>  
-    
+    </form>
+
     <h1>Delete booking</h1>
     <form id="postDataForm" action="http://localhost:3000/api/booking/delete" method="POST">
-    
+
         <label for="tableNumber">Table Number:</label>
         <input type="number" id="tableNumber" name="tableNumber" required><br>
 
@@ -54,29 +56,30 @@
 
         <label for="customerId">Customer ID:</label>
         <input type="number" id="customerId" name="customerId" required><br>
-        
+
         <input type="submit" value="Submit">
-    </form>  
-    
-        <h1>Get All Bookings</h1>
+    </form>
+
+    <h1>Get All Bookings</h1>
     <form id="getAll" action="http://localhost:3000/api/booking/getAll" method="GET">
         <input type="submit" value="Submit">
-    </form> 
-     
-     <h1>Get Busy Bookings</h1>
-    <form id="getBusy" action="http://localhost:3000/api/booking/getBusy" method="POST">    
-	<label for="date">Date:</label>
+    </form>
+
+    <h1>Get Busy Bookings</h1>
+    <form id="getBusy" action="http://localhost:3000/api/booking/getBusy" method="POST">
+        <label for="date">Date:</label>
         <input type="Date" id="date" name="date" required><br>
 
         <label for="startTime">Start Time:</label>
         <input type="time" id="startTime" name="startTime" required><br>
-        
+
         <label for="endTime">End Time:</label>
         <input type="time" id="endTime" name="endTime" required><br>
-	
-	<input type="submit" value="Submit">
-    </form>  
-    
-    
+
+        <input type="submit" value="Submit">
+    </form>
+
+
 </body>
+
 </html>
